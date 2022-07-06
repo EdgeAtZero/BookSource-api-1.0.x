@@ -1,11 +1,11 @@
 plugins {
     kotlin("multiplatform") version "1.7.0"
     id("maven-publish")
-    signing
+    id("signing")
 }
 
 group = "io.github.edgeatzero"
-version = "1.0-SNAPSHOT"
+version = "1.0.1-SNAPSHOT"
 
 repositories {
     mavenCentral()
