@@ -51,19 +51,38 @@ publishing {
                 setUrl("https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/")
             }
             credentials {
-                username = properties["ossrhUsername"] as String
-                password = properties["ossrhPassword"] as String
+                username = properties["sonatypeUsername"] as String
+                password = properties["sonatypePassword"] as String
             }
         }
     }
     publications {
         withType<MavenPublication> {
+            groupId = "io.github.edgeatzero"
+            artifactId = "BookSource-api"
+            version = project.version.toString()
             pom {
-                packaging = "io.github.edgeatzero.reader.api"
-                name.set("Reader-Api")
+                name.set("Edge Reader Source Api")
+                description.set("edge reader core source api")
+                licenses {
+                    license {
+                        name.set("MIT")
+                        url.set("https://github.com/EdgeAtZero/BookSource-api/blob/master/LICENSE")
+                    }
+                }
+                issueManagement {
+                    system.set("Github")
+                    url.set("https://github.com/EdgeAtZero/BookSource-api/issues")
+                }
                 scm {
-                    connection.set("https://github.com/EdgeAtZero/EdgeReaderApi.git")
-                    url.set("https://github.com/EdgeAtZero/EdgeReaderApi")
+                    connection.set("https://github.com/EdgeAtZero/BookSource-api.git")
+                    url.set("https://github.com/EdgeAtZero/BookSource-api")
+                }
+                developers {
+                    developer {
+                        name.set("Edge At Zero")
+                        email.set("edgeatzero@gmail.com")
+                    }
                 }
             }
         }
