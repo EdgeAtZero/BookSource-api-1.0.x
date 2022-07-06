@@ -25,7 +25,7 @@ public abstract class Book {
     /**
      *  标签
      * */
-    public abstract val tags: List<io.github.edgeatzero.reader.api.models.Tag>
+    public abstract val tags: List<Tag>
 
     /**
      *  书籍上传者
@@ -44,7 +44,7 @@ public abstract class Book {
 
     public override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is io.github.edgeatzero.reader.api.models.Book) return false
+        if (other !is Book) return false
 
         if (id != other.id) return false
         if (title != other.title) return false

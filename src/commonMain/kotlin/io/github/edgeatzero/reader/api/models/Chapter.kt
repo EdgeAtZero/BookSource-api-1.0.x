@@ -24,7 +24,7 @@ public abstract class Chapter {
 
     public override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is io.github.edgeatzero.reader.api.models.Chapter) return false
+        if (other !is Chapter) return false
 
         if (id != other.id) return false
         if (name != other.name) return false

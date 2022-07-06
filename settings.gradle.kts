@@ -1,3 +1,1 @@
-
-rootProject.name = "Edge Reader Api"
-
+rootProject.name = "reader-api"

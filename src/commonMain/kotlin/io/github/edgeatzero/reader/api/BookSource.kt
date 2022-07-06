@@ -1,5 +1,12 @@
 package io.github.edgeatzero.reader.api
 
+import io.github.edgeatzero.reader.api.exceptions.InstallException
+import io.github.edgeatzero.reader.api.exceptions.NoSuchBookException
+import io.github.edgeatzero.reader.api.exceptions.NoSuchChapterException
+import io.github.edgeatzero.reader.api.models.Book
+import io.github.edgeatzero.reader.api.models.Chapter
+import io.github.edgeatzero.reader.api.models.Content
+
 /**
  *  书源抽象类
  *
@@ -10,31 +17,31 @@ public abstract class BookSource {
     /**
      *  初始化
      * */
-    @Throws(io.github.edgeatzero.reader.api.exceptions.InstallException::class)
+    @Throws(InstallException::class)
     public abstract fun install()
 
     /**
      *  通过书籍id获取书籍的信息
      * */
-    @Throws(io.github.edgeatzero.reader.api.exceptions.NoSuchBookException::class)
-    public abstract suspend fun fetch(id: String): io.github.edgeatzero.reader.api.models.Book
+    @Throws(NoSuchBookException::class)
+    public abstract suspend fun fetch(id: String): Book
 
     /**
      *  更新小说信息
      * */
-    @Throws(io.github.edgeatzero.reader.api.exceptions.NoSuchBookException::class)
-    public abstract suspend fun update(book: io.github.edgeatzero.reader.api.models.Book): io.github.edgeatzero.reader.api.models.Book
+    @Throws(NoSuchBookException::class)
+    public abstract suspend fun update(book: Book): Book
 
     /**
      * 获取书籍的章节
      * */
-    @Throws(io.github.edgeatzero.reader.api.exceptions.NoSuchBookException::class)
-    public abstract suspend fun chapters(book: io.github.edgeatzero.reader.api.models.Book): List<io.github.edgeatzero.reader.api.models.Chapter>
+    @Throws(NoSuchBookException::class)
+    public abstract suspend fun chapters(book: Book): List<Chapter>
 
     /**
      * 章节的文本内容
      * */
-    @Throws(io.github.edgeatzero.reader.api.exceptions.NoSuchChapterException::class)
-    public abstract suspend fun contents(chapter: io.github.edgeatzero.reader.api.models.Chapter): List<io.github.edgeatzero.reader.api.models.Content>
+    @Throws(NoSuchChapterException::class)
+    public abstract suspend fun contents(chapter: Chapter): List<Content>
 
 }
