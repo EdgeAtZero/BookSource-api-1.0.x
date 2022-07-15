@@ -1,8 +1,5 @@
 package io.github.edgeatzero.booksource.utils
 
-import java.io.IOException
-
-
 /**
  *  偏好存储辅助接口
  * */

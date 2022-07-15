@@ -1,10 +1,10 @@
 package io.github.edgeatzero.booksource.functions
 
-import io.github.edgeatzero.booksource.preferences.Preference
+import io.github.edgeatzero.booksource.preferences.Preferences
 import java.io.IOException
 
 /**
- *  登录实现类
+ *  登录功能
  * */
 public interface LoginFunction {
 
@@ -16,12 +16,12 @@ public interface LoginFunction {
     /**
      *  登录参数配置
      * */
-    public val loginPreferences: List<Preference>
+    public val loginPreferences: Preferences
 
     /**
      *  登录
      * */
-    @Throws(IllegalArgumentException::class,IOException::class)
+    @Throws(IllegalArgumentException::class, IOException::class)
     public suspend fun login(configs: Map<String, Any>)
 
     /**
@@ -33,15 +33,18 @@ public interface LoginFunction {
     /**
      *  登录类型
      * */
-    enum class Type {
+    public enum class Type {
+
         /**
          *  URL里登录
          * */
         URL,
+
         /**
          *  已实现方法
          * */
         FUN;
+
     }
 
 }

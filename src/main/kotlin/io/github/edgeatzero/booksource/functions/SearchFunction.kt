@@ -3,7 +3,8 @@ package io.github.edgeatzero.booksource.functions
 import io.github.edgeatzero.booksource.models.Book
 import io.github.edgeatzero.booksource.models.SearchOrder
 import io.github.edgeatzero.booksource.models.TagSearched
-import io.github.edgeatzero.booksource.preferences.Preference
+import io.github.edgeatzero.booksource.preferences.Preferences
+import io.github.edgeatzero.booksource.utils.PagingController
 import java.io.IOException
 
 /**
@@ -19,7 +20,7 @@ public interface SearchFunction {
     /**
      *  搜索参数配置
      * */
-    public val searchPreferences: List<Preference>
+    public val searchPreferences: Preferences
 
     /**
      *  搜索
@@ -28,7 +29,7 @@ public interface SearchFunction {
      *
      * */
     @Throws(IllegalArgumentException::class, IOException::class)
-    public suspend fun search(configs: Map<String, Any>): List<Book>
+    public suspend fun search(configs: Map<String, Any>): PagingController<List<Book>>
 
 
     /**

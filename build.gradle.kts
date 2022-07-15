@@ -1,39 +1,31 @@
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
 plugins {
-    kotlin("multiplatform") version "1.7.0"
-    id("maven-publish")
-    id("signing")
+    kotlin("jvm")
+    `maven-publish`
+    signing
 }
 
 group = "io.github.edgeatzero"
-version = "1.0.1-SNAPSHOT"
+version = "1.0.2-SNAPSHOT"
 
 repositories {
+    google()
     mavenCentral()
 }
 
-kotlin {
-    jvm {
-        compilations.all {
-            kotlinOptions.jvmTarget = "1.8"
-        }
-        withJava()
-        testRuns["test"].executionTask.configure {
-            useJUnitPlatform()
-        }
+dependencies {
+    implementation(kotlin("stdlib"))
+    implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.4.0")
+    compileOnly("io.ktor:ktor-client-core:2.0.3")
+}
+
+tasks {
+    withType<KotlinCompile> {
+        kotlinOptions.jvmTarget = "11"
     }
-    sourceSets {
-        val commonMain by getting {
-            dependencies {
-                compileOnly("io.ktor:ktor-client-core:2.0.2")
-            }
-        }
-        val commonTest by getting {
-            dependencies {
-                implementation(kotlin("test"))
-            }
-        }
-        val jvmMain by getting
-        val jvmTest by getting
+    test {
+        useJUnitPlatform()
     }
 }
 
@@ -57,7 +49,7 @@ publishing {
         }
     }
     publications {
-        withType<MavenPublication> {
+        create<MavenPublication>("Maven") {
             groupId = "io.github.edgeatzero"
             artifactId = "BookSource-api"
             version = project.version.toString()
@@ -84,6 +76,8 @@ publishing {
                         email.set("edgeatzero@gmail.com")
                     }
                 }
+
+                from(components["kotlin"])
             }
         }
     }
