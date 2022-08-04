@@ -1,5 +1,6 @@
 package io.github.edgeatzero.booksource.nesteds
 
+import io.github.edgeatzero.booksource.exceptions.InstallException
 import io.github.edgeatzero.booksource.utils.ConfigureHelper
 
 /**
@@ -9,7 +10,7 @@ import io.github.edgeatzero.booksource.utils.ConfigureHelper
  * */
 public interface ConfigureNested {
 
-    @Throws(RuntimeException::class)
+    @Throws(InstallException::class)
     public fun install(configure: Map<String, String>, helper: ConfigureHelper)
 
 }

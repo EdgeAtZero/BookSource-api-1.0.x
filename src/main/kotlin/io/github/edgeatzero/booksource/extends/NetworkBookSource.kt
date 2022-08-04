@@ -1,13 +1,19 @@
 package io.github.edgeatzero.booksource.extends
 
 import io.github.edgeatzero.booksource.BookSource
+import io.github.edgeatzero.booksource.exceptions.FetchException
 import io.github.edgeatzero.booksource.functions.ImageURLFunction
+import io.github.edgeatzero.booksource.functions.MultipleMethodFunction
+import io.github.edgeatzero.booksource.models.Book
+import io.github.edgeatzero.booksource.models.Chapter
+import io.github.edgeatzero.booksource.models.Contents
 import io.github.edgeatzero.booksource.nesteds.HttpClientEngineNested
 import io.ktor.client.*
 import io.ktor.client.engine.*
 import io.ktor.client.request.*
 
 public abstract class NetworkBookSource : BookSource(), ImageURLFunction, HttpClientEngineNested {
+
     protected open lateinit var client: HttpClient
 
     public override fun install() = Unit
@@ -25,5 +31,7 @@ public abstract class NetworkBookSource : BookSource(), ImageURLFunction, HttpCl
     public override fun close() {
         client.close()
     }
+
+    public override fun toString(): String = "NetworkBookSource(id='$id', lang=$lang)"
 
 }

@@ -1,9 +1,10 @@
 package io.github.edgeatzero.booksource
 
+import io.github.edgeatzero.booksource.exceptions.FetchException
+import io.github.edgeatzero.booksource.exceptions.InstallException
 import io.github.edgeatzero.booksource.models.Book
 import io.github.edgeatzero.booksource.models.Chapter
 import io.github.edgeatzero.booksource.models.Contents
-import io.github.edgeatzero.booksource.resource.ResourceContainer
 import java.io.Closeable
 import java.io.IOException
 import java.util.*
@@ -28,26 +29,26 @@ public abstract class BookSource : Closeable {
     /**
      *  初始化
      * */
-    @Throws(RuntimeException::class)
+    @Throws(InstallException::class)
     public abstract fun install()
 
     /**
      *  通过书籍id获取书籍的信息
      * */
-    @Throws(IllegalArgumentException::class, IOException::class)
+    @Throws(FetchException::class)
     public abstract suspend fun fetch(id: String): Book
 
     /**
      * 获取书籍的章节
      * */
-    @Throws(IllegalArgumentException::class, IOException::class)
+    @Throws(FetchException::class)
     public abstract suspend fun chapters(book: Book): List<Chapter>
 
     /**
      * 章节的文本内容
      * */
-    @Throws(IllegalArgumentException::class, IOException::class)
-    public abstract suspend fun contents(chapter: Chapter): Contents
+    @Throws(FetchException::class)
+    public abstract suspend fun contents(book: Book, chapter: Chapter): Contents
 
     /**
      *  关闭占用资源
@@ -55,8 +56,6 @@ public abstract class BookSource : Closeable {
     @Throws(IOException::class)
     public abstract override fun close()
 
-    public override fun toString(): String {
-        return "BookSource(id='$id', lang=$lang)"
-    }
+    public override fun toString(): String = "BookSource(id='$id', lang=$lang)"
 
 }

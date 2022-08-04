@@ -16,13 +16,6 @@ public abstract class PagingController<T : Any> : Closeable {
     public abstract fun previousPage()
 
     /**
-     *  关闭的标志
-     * */
-    @Volatile
-    public var isClosed: Boolean = false
-        protected set
-
-    /**
      *  关闭占用资源
      * */
     @Throws(IOException::class)

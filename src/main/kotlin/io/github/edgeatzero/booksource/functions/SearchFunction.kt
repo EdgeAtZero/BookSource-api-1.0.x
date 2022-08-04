@@ -4,7 +4,6 @@ import io.github.edgeatzero.booksource.models.Book
 import io.github.edgeatzero.booksource.models.SearchOrder
 import io.github.edgeatzero.booksource.models.TagSearched
 import io.github.edgeatzero.booksource.preferences.Preferences
-import io.github.edgeatzero.booksource.utils.PagingController
 import java.io.IOException
 
 /**
@@ -25,12 +24,12 @@ public interface SearchFunction {
     /**
      *  搜索
      *
-     *  @param configs 搜索选项
+     *  @param config 搜索选项
+     *  @param key 搜索的页数
      *
      * */
     @Throws(IllegalArgumentException::class, IOException::class)
-    public suspend fun search(configs: Map<String, Any>): PagingController<List<Book>>
-
+    public suspend fun search(config: Map<String, String>): Pair<List<Book>, Map<String, String>?>
 
     /**
      *  为实现搜索参数的构建的接口
@@ -54,7 +53,22 @@ public interface SearchFunction {
             order: SearchOrder? = null,
             author: String? = null,
             uploader: String? = null
-        ): Map<String, Any>
+        ): Map<String, String>
+
+        /**
+         *  设置索引
+         * */
+        public fun setIndex(configs: MutableMap<String, String>, index: Int)
+
+        /**
+         *  获取索引
+         * */
+        public fun getIndex(configs: Map<String, String>): Int
+
+        /**
+         *  设置最大索引
+         * */
+        public fun getLastIndex(configs: Map<String, String>): Int
 
         /**
          *  是否支持通过关键字来搜索
@@ -80,6 +94,11 @@ public interface SearchFunction {
          *  是否支持通过上传者来搜索
          * */
         public val isUploaderSupported: Boolean
+
+        /**
+         *  页面切换支持索引
+         * */
+        public val isPageIndexSupported: Boolean
 
         /**
          *  支持的搜索排序

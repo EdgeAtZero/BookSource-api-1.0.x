@@ -1,3 +1,5 @@
+@file:Suppress("DuplicatedCode")
+
 package io.github.edgeatzero.booksource.models
 
 import kotlinx.datetime.Instant

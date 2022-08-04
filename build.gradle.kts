@@ -10,19 +10,19 @@ group = "io.github.edgeatzero"
 version = "1.0.2-SNAPSHOT"
 
 repositories {
-    google()
     mavenCentral()
 }
 
 dependencies {
     implementation(kotlin("stdlib"))
     implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.4.0")
-    compileOnly("io.ktor:ktor-client-core:2.0.3")
+    implementation("io.ktor:ktor-client-core:2.0.3")
 }
 
 tasks {
     withType<KotlinCompile> {
         kotlinOptions.jvmTarget = "11"
+        kotlinOptions
     }
     test {
         useJUnitPlatform()

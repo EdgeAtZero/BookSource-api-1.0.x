@@ -20,5 +20,5 @@ public data class SelectPreference(
      *  单选
      * */
     public val single: Boolean = true,
-    public val action: SelectPreference.(input: List<String>, output: MutableMap<String, Any>) -> Unit = { _, _ -> }
+    public val action: SelectPreference.(input: List<String>, output: MutableMap<String, String>) -> Unit = { _, _ -> }
 ) : Preference
