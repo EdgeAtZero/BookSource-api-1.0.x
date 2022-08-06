@@ -10,7 +10,7 @@ public data class HintPreference(
     /**
      *  ID
      * */
-    public override val id: String?,
+    public override val id: String,
     /**
      *  内容
      * */

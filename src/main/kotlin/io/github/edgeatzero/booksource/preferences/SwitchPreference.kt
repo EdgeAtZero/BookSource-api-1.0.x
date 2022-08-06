@@ -10,7 +10,7 @@ public data class SwitchPreference(
     /**
      *  ID
      * */
-    public override val id: String?,
+    public override val id: String,
     /**
      *  是否启用
      * */
@@ -26,5 +26,5 @@ public data class SwitchPreference(
     /**
      *  动作处理器
      * */
-    public val action: PreferenceAction<SelectPreference> = PreferenceAction.empty()
-) : Preference
+    public override val action: PreferenceAction<SelectPreference> = PreferenceAction.empty()
+) : Preference, PreferenceActionContainer

@@ -11,7 +11,7 @@ public interface Preference {
     /**
      *  ID
      * */
-    public val id: String?
+    public val id: String
 
 }
 

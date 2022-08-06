@@ -10,7 +10,7 @@ public data class InputPreference(
     /**
      *  ID
      * */
-    public override val id: String?,
+    public override val id: String,
     /**
      *  是否启用
      * */
@@ -34,8 +34,8 @@ public data class InputPreference(
     /**
      *  动作处理器
      * */
-    public val action: PreferenceAction<SelectPreference> = PreferenceAction.empty()
-) : Preference {
+    public override val action: PreferenceAction<SelectPreference> = PreferenceAction.empty()
+) : Preference, PreferenceActionContainer {
     public enum class Type {
         /**
          *  普通文本

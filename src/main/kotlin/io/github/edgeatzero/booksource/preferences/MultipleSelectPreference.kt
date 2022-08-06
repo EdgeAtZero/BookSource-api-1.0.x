@@ -6,11 +6,11 @@ import io.github.edgeatzero.booksource.ExperimentalBookSourceApi
  *  多勾选选项
  * */
 @ExperimentalBookSourceApi
-data class MultipleSelectPreference(
+public data class MultipleSelectPreference(
     /**
      *  ID
      * */
-    public override val id: String?,
+    public override val id: String,
     /**
      *  是否启用
      * */
@@ -30,5 +30,5 @@ data class MultipleSelectPreference(
     /**
      *  动作处理器
      * */
-    public val action: PreferenceAction<MultipleSelectPreference> = PreferenceAction.empty()
-) : Preference
+    public override val action: PreferenceAction<MultipleSelectPreference> = PreferenceAction.empty()
+) : Preference, PreferenceActionContainer
