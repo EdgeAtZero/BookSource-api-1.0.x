@@ -1,6 +1,5 @@
 package io.github.edgeatzero.booksource.functions
 
-import io.github.edgeatzero.booksource.ExperimentalBookSourceApi
 import io.github.edgeatzero.booksource.models.Book
 import io.github.edgeatzero.booksource.models.SearchSort
 import io.github.edgeatzero.booksource.models.TagSearched
@@ -10,7 +9,6 @@ import java.io.IOException
 /**
  *  搜索功能
  * */
-@ExperimentalBookSourceApi
 public interface SearchFunction {
 
     /**

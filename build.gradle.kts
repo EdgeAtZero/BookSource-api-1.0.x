@@ -7,7 +7,7 @@ plugins {
 }
 
 group = "io.github.edgeatzero"
-version = "1.0.6-SNAPSHOT"
+version = "1.0.7-SNAPSHOT"
 
 repositories {
     mavenCentral()
@@ -15,8 +15,8 @@ repositories {
 
 dependencies {
     implementation(kotlin("stdlib"))
-    implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.4.0")
     implementation("io.ktor:ktor-client-core:2.0.3")
+    implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.4.0")
 }
 
 tasks {

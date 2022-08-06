@@ -1,11 +1,9 @@
 package io.github.edgeatzero.booksource.preferences
 
-import io.github.edgeatzero.booksource.ExperimentalBookSourceApi
 
 /**
  *  开关选项
  * */
-@ExperimentalBookSourceApi
 public data class SwitchPreference(
     /**
      *  ID

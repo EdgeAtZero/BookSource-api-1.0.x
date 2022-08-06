@@ -1,11 +1,9 @@
 package io.github.edgeatzero.booksource.preferences
 
-import io.github.edgeatzero.booksource.ExperimentalBookSourceApi
 
 /**
  *  勾选选项
  * */
-@ExperimentalBookSourceApi
 public data class SelectPreference(
     /**
      *  ID

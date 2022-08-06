@@ -69,6 +69,8 @@ public abstract class BookSource : Closeable {
     /**
      *  字符串信息
      * */
-    public override fun toString(): String = "${this::class.simpleName}(id='$id', lang=$lang, version=$version)"
+    override fun toString(): String {
+        return "${this::class.simpleName}(id='$id', lang=$lang, version=$version, versionName='$versionName')"
+    }
 
 }

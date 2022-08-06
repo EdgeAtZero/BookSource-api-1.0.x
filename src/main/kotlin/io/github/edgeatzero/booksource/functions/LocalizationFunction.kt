@@ -15,11 +15,11 @@ public interface LocalizationFunction {
     /**
      *  支持的语言
      * */
-    public val supportedLang: List<Locale>
+    public val supportedLang: Array<Locale>
 
     /**
-     *  语言更改时触发
+     *  初始化或语言更改时触发
      * */
-    public fun onLangChanged(lang: Locale)
+    public fun install(lang: Locale)
 
 }
