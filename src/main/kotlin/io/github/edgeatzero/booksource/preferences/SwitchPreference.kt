@@ -26,5 +26,5 @@ public data class SwitchPreference(
     /**
      *  动作处理器
      * */
-    public override val action: PreferenceAction<SelectPreference> = PreferenceAction.empty()
-) : Preference, PreferenceActionContainer
+    public override val action: PreferenceAction<SwitchPreference> = PreferenceAction.empty()
+) : Preference, PreferenceActionContainer<SwitchPreference>

@@ -31,4 +31,4 @@ public data class MultipleSelectPreference(
      *  动作处理器
      * */
     public override val action: PreferenceAction<MultipleSelectPreference> = PreferenceAction.empty()
-) : Preference, PreferenceActionContainer
+) : Preference, PreferenceActionContainer<MultipleSelectPreference>

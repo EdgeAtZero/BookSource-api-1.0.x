@@ -31,4 +31,4 @@ public data class SelectPreference(
      *  动作处理器
      * */
     public override val action: PreferenceAction<SelectPreference> = PreferenceAction.empty()
-) : Preference, PreferenceActionContainer
+) : Preference, PreferenceActionContainer<SelectPreference>

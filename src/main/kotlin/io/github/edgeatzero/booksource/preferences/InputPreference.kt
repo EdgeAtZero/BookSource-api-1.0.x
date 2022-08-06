@@ -34,8 +34,8 @@ public data class InputPreference(
     /**
      *  动作处理器
      * */
-    public override val action: PreferenceAction<SelectPreference> = PreferenceAction.empty()
-) : Preference, PreferenceActionContainer {
+    public override val action: PreferenceAction<InputPreference> = PreferenceAction.empty()
+) : Preference, PreferenceActionContainer<InputPreference> {
     public enum class Type {
         /**
          *  普通文本
