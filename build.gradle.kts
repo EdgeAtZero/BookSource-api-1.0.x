@@ -7,7 +7,7 @@ plugins {
 }
 
 group = "io.github.edgeatzero"
-version = "1.0.3-SNAPSHOT"
+version = "1.0.4-SNAPSHOT"
 
 repositories {
     mavenCentral()
