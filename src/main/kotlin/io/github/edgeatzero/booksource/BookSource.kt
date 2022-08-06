@@ -27,6 +27,16 @@ public abstract class BookSource : Closeable {
     public abstract val lang: Locale
 
     /**
+     *  版本号
+     * */
+    public abstract val version: Int
+
+    /**
+     *  版本
+     * */
+    public abstract val versionName: String
+
+    /**
      *  初始化
      * */
     @Throws(InstallException::class)
@@ -56,6 +66,9 @@ public abstract class BookSource : Closeable {
     @Throws(IOException::class)
     public abstract override fun close()
 
-    public override fun toString(): String = "BookSource(id='$id', lang=$lang)"
+    /**
+     *  字符串信息
+     * */
+    public override fun toString(): String = "${this::class.simpleName}(id='$id', lang=$lang, version=$version)"
 
 }

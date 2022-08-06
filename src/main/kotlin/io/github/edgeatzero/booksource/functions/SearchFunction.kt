@@ -16,7 +16,7 @@ public interface SearchFunction {
     /**
      *  搜索参数构建器
      * */
-    public val searchCreator: ConfigCreator?
+    public val searchCreator: Configurer?
 
     /**
      *  搜索参数配置
@@ -27,7 +27,6 @@ public interface SearchFunction {
      *  搜索
      *
      *  @param config 搜索选项
-     *  @param key 搜索的页数
      *
      * */
     @Throws(IllegalArgumentException::class, IOException::class)
@@ -36,7 +35,7 @@ public interface SearchFunction {
     /**
      *  为实现搜索参数的构建的接口
      * */
-    public interface ConfigCreator {
+    public interface Configurer {
 
         /**
          *  构建参数
@@ -49,13 +48,14 @@ public interface SearchFunction {
          *
          * */
         @Throws(IllegalArgumentException::class)
-        public fun buildConfig(
+        public fun config(
+            output: MutableMap<String, String>,
             keywords: String? = null,
             tags: List<TagSearched>? = null,
             sort: SearchSort? = null,
             author: String? = null,
             uploader: String? = null
-        ): Map<String, String>
+        )
 
         /**
          *  设置索引

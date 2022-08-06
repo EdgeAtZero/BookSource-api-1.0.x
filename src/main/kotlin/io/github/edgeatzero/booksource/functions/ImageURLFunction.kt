@@ -7,6 +7,9 @@ import io.ktor.client.statement.*
  * */
 public interface ImageURLFunction {
 
+    /**
+     *  处理 [url] 链接
+     * */
     public suspend fun mapImageUrl(url: String): HttpResponse
 
 }
