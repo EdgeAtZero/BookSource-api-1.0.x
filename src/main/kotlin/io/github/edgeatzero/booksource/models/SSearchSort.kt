@@ -3,7 +3,7 @@ package io.github.edgeatzero.booksource.models
 /**
  *  搜索排序
  * */
-public enum class SSearchOrder: SearchOrder {
+public enum class SSearchSort: SearchSort {
 
     /**
      *  最新

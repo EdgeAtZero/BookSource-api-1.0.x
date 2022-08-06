@@ -1,9 +1,20 @@
 package io.github.edgeatzero.booksource.preferences
 
+import io.github.edgeatzero.booksource.ExperimentalBookSourceApi
+
 /**
  *  输入框选项
  * */
+@ExperimentalBookSourceApi
 public data class InputPreference(
+    /**
+     *  ID
+     * */
+    public override val id: String?,
+    /**
+     *  是否启用
+     * */
+    public var enabled: Boolean = true,
     /**
      *  标签
      * */
@@ -13,14 +24,17 @@ public data class InputPreference(
      * */
     public val type: Type = Type.Text,
     /**
-     *  默认输入内容
+     *  输入内容
      * */
-    public val placement: String? = null,
+    public val input: String? = null,
     /**
      *  单行
      * */
     public val single: Boolean = false,
-    public val action: InputPreference.(input: String, output: MutableMap<String, Any>) -> Unit = { _, _ -> }
+    /**
+     *  动作处理器
+     * */
+    public val action: PreferenceAction<SelectPreference> = PreferenceAction.empty()
 ) : Preference {
     public enum class Type {
         /**

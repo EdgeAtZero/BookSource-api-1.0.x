@@ -3,7 +3,7 @@ package io.github.edgeatzero.booksource.models
 /**
  *  搜索排序
  * */
-public interface SearchOrder {
+public interface SearchSort {
 
     /**
      *  名称

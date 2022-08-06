@@ -3,10 +3,10 @@ package io.github.edgeatzero.booksource.preferences
 import io.github.edgeatzero.booksource.ExperimentalBookSourceApi
 
 /**
- *  开关选项
+ *  多勾选选项
  * */
 @ExperimentalBookSourceApi
-public data class SwitchPreference(
+data class MultipleSelectPreference(
     /**
      *  ID
      * */
@@ -20,11 +20,15 @@ public data class SwitchPreference(
      * */
     public val label: String? = null,
     /**
-     *  默认状态
+     *  选项
      * */
-    public val placement: String? = null,
+    public val selections: List<String>,
+    /**
+     *  已勾选的选项
+     * */
+    public val selected: List<String>? = null,
     /**
      *  动作处理器
      * */
-    public val action: PreferenceAction<SelectPreference> = PreferenceAction.empty()
+    public val action: PreferenceAction<MultipleSelectPreference> = PreferenceAction.empty()
 ) : Preference

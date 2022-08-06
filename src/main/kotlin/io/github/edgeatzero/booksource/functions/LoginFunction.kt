@@ -1,11 +1,13 @@
 package io.github.edgeatzero.booksource.functions
 
+import io.github.edgeatzero.booksource.ExperimentalBookSourceApi
 import io.github.edgeatzero.booksource.preferences.Preferences
 import java.io.IOException
 
 /**
  *  登录功能
  * */
+@ExperimentalBookSourceApi
 public interface LoginFunction {
 
     /**

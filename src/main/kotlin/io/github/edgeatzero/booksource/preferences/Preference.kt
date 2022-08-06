@@ -1,8 +1,19 @@
 package io.github.edgeatzero.booksource.preferences
 
-public typealias Preferences = List<Preference>
+import io.github.edgeatzero.booksource.ExperimentalBookSourceApi
 
 /**
  *  用来标识选项的接口
  * */
-public interface Preference
+@ExperimentalBookSourceApi
+public interface Preference {
+
+    /**
+     *  ID
+     * */
+    public val id: String?
+
+}
+
+@ExperimentalBookSourceApi
+public typealias Preferences = List<Preference>

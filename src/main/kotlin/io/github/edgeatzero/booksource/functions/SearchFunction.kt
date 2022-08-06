@@ -1,7 +1,8 @@
 package io.github.edgeatzero.booksource.functions
 
+import io.github.edgeatzero.booksource.ExperimentalBookSourceApi
 import io.github.edgeatzero.booksource.models.Book
-import io.github.edgeatzero.booksource.models.SearchOrder
+import io.github.edgeatzero.booksource.models.SearchSort
 import io.github.edgeatzero.booksource.models.TagSearched
 import io.github.edgeatzero.booksource.preferences.Preferences
 import java.io.IOException
@@ -9,6 +10,7 @@ import java.io.IOException
 /**
  *  搜索功能
  * */
+@ExperimentalBookSourceApi
 public interface SearchFunction {
 
     /**
@@ -41,7 +43,7 @@ public interface SearchFunction {
          *
          *  @param keywords 关键字
          *  @param tags 标签
-         *  @param order 排序
+         *  @param sort 排序
          *  @param author 作者
          *  @param uploader 上传者
          *
@@ -50,7 +52,7 @@ public interface SearchFunction {
         public fun buildConfig(
             keywords: String? = null,
             tags: List<TagSearched>? = null,
-            order: SearchOrder? = null,
+            sort: SearchSort? = null,
             author: String? = null,
             uploader: String? = null
         ): Map<String, String>
@@ -103,7 +105,7 @@ public interface SearchFunction {
         /**
          *  支持的搜索排序
          * */
-        public val supportedSearchOrders: List<SearchOrder>
+        public val supportedSearchSorts: List<SearchSort>
 
     }
 
