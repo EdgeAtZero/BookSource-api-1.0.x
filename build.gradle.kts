@@ -7,7 +7,7 @@ plugins {
 }
 
 group = "io.github.edgeatzero"
-version = "1.0.7-SNAPSHOT"
+version = "1.0.8-SNAPSHOT"
 
 repositories {
     mavenCentral()
@@ -15,7 +15,7 @@ repositories {
 
 dependencies {
     implementation(kotlin("stdlib"))
-    implementation("io.ktor:ktor-client-core:2.0.3")
+    implementation("io.ktor:ktor-client-core:2.1.2")
     implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.4.0")
 }
 
@@ -42,8 +42,8 @@ publishing {
                 setUrl("https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/")
             }
             credentials {
-                username = properties["sonatypeUsername"] as String
-                password = properties["sonatypePassword"] as String
+                username = properties["sonatype.username"] as String
+                password = properties["sonatype.password"] as String
             }
         }
     }
